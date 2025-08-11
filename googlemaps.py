@@ -31,8 +31,6 @@ async def extract():
             ''')
             await page.wait_for_timeout(5000)
 
-        # cards = await page.query_selector_all('.Nv2PK')
-        # print(f"✅ Found {len(cards)} business cards")
         html = await page.content()
         await browser.close()
 
@@ -62,17 +60,10 @@ async def extract():
                 writer = csv.writer(f)
                 writer.writerow(
                     [Name, Rating,NumberOfReviews,Phone,Adrress])
-            # print(
-            #     {
-            #         'Name':Name,
-            #         'Rating':Rating,
-            #         'NumberOfReviews':NumberOfReviews,
-            #         'Phone':Phone,
-            #         'Address':Address
-            #     }
-            # )
+
 
 asyncio.run(extract())
+
 
 
 
